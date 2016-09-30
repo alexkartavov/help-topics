@@ -10,16 +10,16 @@
 
 # Using Ignite UI controls in different time zones
 
-##Introduction
+## Introduction
 Users of a web application are often in a different time zone than the web server and in some circumstances you may want to render the server-based date values adjusted to the client's time zone. In this topic you learn to customize the `enableUTCDates` property in the `igGrid`, `igDatePicker` and `igDateEditor` to display and edit date values that reflect the client's time zone.
 
-##Configuring Client-Side Dates
+## Configuring Client-Side Dates
 
 When enabled, the `EnableUTCDates` option allows dates to be formatted as UTC dates on the client side. As a date value is received from the server it goes through a formatter function to display the date. If `enableUTCDates` is set to false, the final result returns date values via the standard date object methods (getFullYear(), getMonth(), getDate(),getHours() etc.) and if set to true UTC equivalents ( getUTCFullYear(), getUTCMonth(), getUTCDate(), getUTCHours() etc.) are used. Therefore, when the option is enabled the dates received from the server are converted to UTC. 
  
 There are some distinctive behaviors to consider when used with specific controls.
 
-##igGrid/igHierarchicalGrid
+## igGrid/igHierarchicalGrid
  
 There are two possible scenarios where the enableUTCDates option is relevant.
 
@@ -50,7 +50,7 @@ In those cases the time zone offset is added to the data source in the form of m
 As the different dates may have a different type (UTC or Local) the specific date values for each row have their specific offset send as part of the metadata as demonstrated above.
 >**Note:** If the data source contains information on the timezone offset of the server, that offset is always taken into consideration when rendering the date on the client. Therefore when the grid is instantiated via the MVC wrapper the EnableUTCDates option is enabled by default, otherwise the option is disabled by default.
 
-###Practical Example:
+### Practical Example:
 Consider the following scenario:
 
 -	A website is hosted in US (Eastern Time UTC - 5:00). In it there's an igGrid showing a column with date values. The date values are created in the US time zone and are formatted as follows: "dd/MM/yyyy HH:mm:ss".
@@ -102,7 +102,7 @@ So after updating the value and saving the changes to the server, the value rece
 
 ![](images/igniteui_Different_Time_Zones_2.png)
 
-##igDatePicker and igDateEditor
+## igDatePicker and igDateEditor
 
 The editors behave in a slightly different way since they're not databound controls. They don't take the server's offset into consideration. They directly pass the value set via the MVC Wrapper to the client.
 
